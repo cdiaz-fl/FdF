@@ -6,7 +6,7 @@
 /*   By: cdiaz-fl <cdiaz-fl@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 09:20:03 by cdiaz-fl          #+#    #+#             */
-/*   Updated: 2021/12/03 20:21:04 by cdiaz-fl         ###   ########.fr       */
+/*   Updated: 2021/12/07 19:35:32 by cdiaz-fl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int	argc,  char **argv)
 	ft_get_map_size(&map, argv[1], 0, 0);
 	ft_create_map(&map, argv[1]);
 	ft_init_mlx(&map);
-
 }
 
 void	ft_get_map_size(t_map *map, char *argv, int rows, int cols)
