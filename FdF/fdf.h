@@ -21,6 +21,8 @@ typedef struct	s_map {
 	int	dx;
 	int	dy;
 	int	p;
+	int	plus;
+	int	color;
 }	t_map;
 
 typedef struct	s_dot {
@@ -38,7 +40,7 @@ void	my_mlx_pixel_put(t_data *data, int width, int height, int color);
 void	ft_x_dots(t_map *map, t_data *img, int x, int y);
 void	ft_y_dots(t_map *map, t_data *img, int x, int y);
 void	ft_bresenham_high(t_map *map, t_data *img, t_dot *a, t_dot *b);
-void	ft_bresenham_equal(t_data *img, t_dot *a, t_dot *b);
+void	ft_bresenham_equal(t_map *map, t_data *img, t_dot *a, t_dot *b);
 void	ft_bresenham_low(t_map *map, t_data *img, t_dot *a, t_dot *b);
 
 
