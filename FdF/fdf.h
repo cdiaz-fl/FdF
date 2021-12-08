@@ -32,6 +32,8 @@ typedef struct	s_dot {
 } t_dot;
 
 int	main(int argc, char **argv);
+int	ft_is_nbr(char *str);
+long	ft_real_atoi(const char *nptr);
 void	ft_get_map_size(t_map *map, char *argv, int rows, int cols);
 void	ft_create_map(t_map *map, char *argv);
 void	ft_init_mlx(t_map *map);
@@ -40,7 +42,6 @@ void	my_mlx_pixel_put(t_data *data, int width, int height, int color);
 void	ft_x_dots(t_map *map, t_data *img, int x, int y);
 void	ft_y_dots(t_map *map, t_data *img, int x, int y);
 void	ft_bresenham_high(t_map *map, t_data *img, t_dot *a, t_dot *b);
-void	ft_bresenham_equal(t_map *map, t_data *img, t_dot *a, t_dot *b);
 void	ft_bresenham_low(t_map *map, t_data *img, t_dot *a, t_dot *b);
 
 
