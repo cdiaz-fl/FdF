@@ -6,7 +6,7 @@
 /*   By: cdiaz-fl <cdiaz-fl@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 09:20:03 by cdiaz-fl          #+#    #+#             */
-/*   Updated: 2021/12/07 19:35:32 by cdiaz-fl         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:56:46 by cdiaz-fl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,28 @@
 
 #include <stdio.h>
 
+void	p_map(t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+			//printf("%4d  \n", map->f_map[0][9]);
+	while (i < map->height)
+	{
+		j = 0;
+
+		while (j < map->width)
+		{
+			printf("%4d  ", map->f_map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}
+
 int	main(int	argc,  char **argv)
 {
 	t_map	map;
@@ -27,6 +49,8 @@ int	main(int	argc,  char **argv)
 		exit (0);
 	ft_get_map_size(&map, argv[1], 0, 0);
 	ft_create_map(&map, argv[1]);
+	//p_map(&map);
+	printf("width: %4d    height: %4d \n", map.width, map.height);
 	ft_init_mlx(&map);
 }
 
@@ -47,8 +71,11 @@ void	ft_get_map_size(t_map *map, char *argv, int rows, int cols)
 			break ;
 		map->tmp = ft_split(result, ' ');
 		i = 0;
-		while (map->tmp[i])
+		while (map->tmp[i] && ft_is_nbr(map->tmp[i]))
+		{
+			printf("eppiii");
 			i++;
+		}
 		if (i > cols)
 			cols = i;
 		rows++;
@@ -93,10 +120,16 @@ void	ft_create_map(t_map *map, char *argv)
 		k = 0;
 		while (map->tmp[j])
 		{
-			map->f_map[i][k] = ft_atoi(map->tmp[j]);	
-			k++;
+			//printf("%s  ", map->tmp[j]);
+			if (ft_is_nbr(map->tmp[j]))
+			{
+				map->f_map[i][k] = ft_atoi(map->tmp[j]);	
+				printf("%4d ", map->f_map[i][k]);
+				k++;
+			}
 			j++;
 		}
+		printf("\n");
 		i++;
 	}
 	close(map->fd);
