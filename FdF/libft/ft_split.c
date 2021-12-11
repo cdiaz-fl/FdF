@@ -6,7 +6,7 @@
 /*   By: cdiaz-fl <cdiaz-fl@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 10:43:35 by cdiaz-fl          #+#    #+#             */
-/*   Updated: 2021/12/01 10:35:36 by cdiaz-fl         ###   ########.fr       */
+/*   Updated: 2021/12/11 15:11:17 by cdiaz-fl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static unsigned int	ft_numb(char const *s, char c)
 	return (numb);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char			**ptr;
 	unsigned int	numb;
@@ -109,5 +109,7 @@ char	**ft_split(char const *s, char c)
 	if (!ptr)
 		return (NULL);
 	ptr = ft_len(s, c, ptr);
+	if (s != NULL)
+		free(s);
 	return (ptr);
 }
