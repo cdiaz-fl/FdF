@@ -9,6 +9,8 @@ NAME = fdf
 FILES = main.c \
 								mlx_aux.c \
 								dots.c \
+								utils.c \
+								events.c \
 
 
 
@@ -25,7 +27,7 @@ MLX				=		minilibx
 ### COMPILATION ###
 
 CC    = clang
-FLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
+FLAGS = -Wall -Werror -Wextra -g#-fsanitize=address -g3
 CSANITIZE = -fsanitize=address -g3
 MINILIBX	=	 -lmlx -framework OpenGL -framework Appkit
 
@@ -68,7 +70,7 @@ tmp:
 	mkdir -p obj
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c fdf.h
-	$(CC) $(FLAGS) -c -o $@ $<
+	@$(CC) $(FLAGS) -c -o $@ $<
 		
 clean:
 	@make clean -C $(LIBFT)
