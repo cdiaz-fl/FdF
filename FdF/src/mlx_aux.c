@@ -6,7 +6,7 @@
 /*   By: cdiaz-fl <cdiaz-fl@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 09:19:50 by cdiaz-fl          #+#    #+#             */
-/*   Updated: 2021/12/08 19:46:00 by cdiaz-fl         ###   ########.fr       */
+/*   Updated: 2021/12/11 18:57:13 by cdiaz-fl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,12 @@ void	ft_create_grid(t_map *map, int x, int y, t_data *img)
 		map->i++;
 		y += map->blank;
 	}
+}
+
+void	ft_initialize(t_map *map, char *argv)
+{
+	map->x_shift = 0;
+	map->y_shift = 0;
+	map->argv = argv;
+
 }
