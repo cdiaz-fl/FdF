@@ -10,6 +10,9 @@ typedef struct	s_data {
 }	t_data;
 
 typedef struct	s_map {
+	char	*argv;
+	void	*mlx;
+	void	*mlx_win;
 	int	fd;
 	int	height;
 	int	width;
@@ -24,6 +27,9 @@ typedef struct	s_map {
 	int	p;
 	int	plus;
 	int	color;
+	int	x_shift;
+	int	y_shift;
+	t_data	img;
 }	t_map;
 
 typedef struct	s_dot {
@@ -34,11 +40,12 @@ typedef struct	s_dot {
 } t_dot;
 
 int	main(int argc, char **argv);
+void	ft_initialize(t_map *map, char *argv);
 int	ft_is_nbr(char *str, int k, int j, t_map *map);
 void	ft_check_hex(char *str, int i, int j, t_map *map);
 long	ft_real_atoi(const char *nptr);
 void	ft_get_map_size(t_map *map, char *argv, int rows, int cols);
-void	ft_create_map(t_map *map, char *argv);
+void	ft_create_map(t_map *map);
 void	ft_init_mlx(t_map *map);
 void	ft_create_grid(t_map *map, int x, int y, t_data *img);
 void	my_mlx_pixel_put(t_data *data, int width, int height, int color);
@@ -50,6 +57,12 @@ void	ft_change_color(t_map *map, t_dot *a, t_dot *b);
 int	ft_check_if_hex_color(t_map *map);
 void	ft_cut_str(char *str, int k, int j, t_map *map);
 int	ft_hex_to_int(char *str);
+void	ft_free_all(t_map *map);
+void	ft_free_double_array(void **str);
+void	shift_keys(int key, t_map *map);
+int	manage_events(int key, t_map *map);
+int	**ft_allocate(t_map *map);
+void	ft_freemap(t_map *map);
 
 
 
